@@ -1,0 +1,48 @@
+.container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  border-radius: 1.5rem;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  -ms-border-radius: 1.5rem;
+  -o-border-radius: 1.5rem;
+  width: 320px;
+  height: 460px;
+  position: relative;
+  background: linear-gradient(to bottom, #00000016, #00000080), url("https://random.imagecdn.app/320/460");
+}
+
+.date {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  text-align: right;
+}
+
+.dateTitle {
+  font-size: 60px;
+  font-weight: 500;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hitokoto {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.from {
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.icon {
+  cursor: pointer;
+}
