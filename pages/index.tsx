@@ -5,6 +5,10 @@ import { Inter } from 'next/font/google'
 import styles from '~/styles/Home.module.css'
 import DailyCard from '~/components/DailyCard'
 import localFont from 'next/font/local'
+import routes from '~/routes'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import HomePage from '~/components/HomePage'
 
 const inter = Inter({ subsets: ['latin'] })
 const MiSansFont = localFont({
@@ -31,7 +35,20 @@ const MiSansFont = localFont({
   }]
 })
 
-export default function Home() {
+function RouterView() {
+  const router = useRouter()
+  const { pathname } = router
+  console.log(pathname)
+
+  switch (pathname.split('/')[1]) {
+    case 'daily-card':
+      return (<DailyCard />)
+    default:
+      return (<HomePage />)
+  }
+}
+
+export default function Index() {
 
   return (
     <>
@@ -43,11 +60,13 @@ export default function Home() {
       </Head>
       <main className={classnames(styles.main, MiSansFont.className)}>
         <div className={styles.router}>
-
+          {routes.map((route, i) => (
+            <Link href={encodeURIComponent(route.path)} key={i}>{route.label}</Link>
+          ))}
         </div>
-        <div className={styles.article}>
-          <DailyCard />
-        </div>
+        <article className={styles.article}>
+          <RouterView></RouterView>
+        </article>
       </main >
     </>
   )
